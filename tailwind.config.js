@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./app/**/*.{ts,tsx,jsx,js}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "webknit-blue": "#0026ff",
+      },
+    },
   },
   plugins: [],
 };

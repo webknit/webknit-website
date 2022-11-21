@@ -1,0 +1,149 @@
+body {
+  color: red;
+}
+
+.c-logo__horn {
+  fill: #d7983e;
+}
+
+.c-logo--animate .c-logo__horn {
+  animation: fadeIn 0.2s linear forwards;
+  animation-delay: 1.8s;
+  opacity: 0;
+}
+
+.c-logo__hair {
+  fill: #87786c;
+}
+
+.c-logo--animate .c-logo__hair {
+  animation: fadeIn 0.2s linear forwards;
+  animation-delay: 1.9s;
+  opacity: 0;
+}
+
+.c-logo__eye-sockets {
+  fill: #f8eed0;
+}
+
+.c-logo--animate .c-logo__eye-sockets {
+  animation: fadeIn 0.2s linear forwards;
+  animation-delay: 2s;
+  opacity: 0;
+}
+
+.c-logo__face-bg {
+  fill: #eed298;
+}
+
+.c-logo--animate .c-logo__face-bg {
+  animation: fadeIn 0.2s linear forwards 2.1s;
+  opacity: 0;
+}
+
+.c-logo__mouth {
+  fill: #f8eed0;
+}
+
+.c-logo--animate .c-logo__mouth {
+  animation: fadeIn 0.2s linear forwards;
+  animation-delay: 2.2s;
+  opacity: 0;
+}
+
+.c-logo__eye {
+  fill: #3d3d3d;
+}
+
+.c-logo--animate .c-logo__eye--left {
+  animation: fadeIn 0.2s linear forwards 2.4s, blink 5s infinite 7s;
+  transform-origin: 50%;
+}
+
+.c-logo--right {
+  transform: rotate(0);
+}
+
+.c-logo--animate .c-logo--right {
+  animation: fadeIn 0.3s linear forwards 2.7s, wink 5s forwards 2.9s,
+    winkInfinite 15s forwards infinite 10s;
+  transform-origin: 50%;
+}
+
+.c-logo__face {
+  stroke-width: 3;
+}
+
+.c-logo--animate .c-logo__face {
+  fill: white;
+}
+.c-logo--animate .c-logo__face {
+  stroke-dasharray: 5267.20556640625;
+  stroke-dashoffset: 5267.20556640625;
+  animation: dash 3.5s linear forwards, fillLines 0.3s linear forwards 1.3s;
+  stroke: #3d3d3d;
+}
+
+@keyframes winkInfinite {
+  4% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  6% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wink {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  6% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes blink {
+  0% {
+    transform: scale(1, 1);
+  }
+  90% {
+    transform: scale(1, 1);
+  }
+  95% {
+    transform: scale(1, 0.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes fillLines {
+  to {
+    fill: #3d3d3d;
+    stroke-width: 0;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
