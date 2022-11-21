@@ -2,5 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@font-face {
+  font-family: "GTReg";
+  src: url("../../public/fonts/GTWalsheimProBold.woff") format("woff2"),
+    url("../../public/fonts/GTWalsheimProRegular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTBold";
+  src: url("../../public/fonts/GTWalsheimProBold.woff2") format("woff2"),
+    url("../../public/fonts/GTWalsheimProBold.woff") format("woff");
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: "GTReg";
+  }
+  a {
+    @apply text-webknit-blue;
+  }
 }
