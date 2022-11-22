@@ -5,13 +5,9 @@ import {
 } from "~/components/layout/header/headerLogo/HeaderLogo";
 import { Nav } from "../nav/nav";
 
-interface Props {
-  children?: React.ReactNode;
-}
-
 export const links: LinksFunction = () => [...logoLinks()];
 
-export function Header({ children }: Props) {
+export function Header() {
   return (
     <header className="border-grey-100 flex items-center justify-between border-b border-solid p-4">
       <Logo />

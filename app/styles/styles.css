@@ -20,6 +20,18 @@
   html {
     font-family: "GTReg";
   }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "GTBold";
+  }
+  h1 {
+    @apply text-5xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
   a {
     @apply text-webknit-blue hover:underline;
   }
