@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "GTReg";
-  src: url("../../public/fonts/GTWalsheimProBold.woff") format("woff2"),
+  src: url("../../public/fonts/GTWalsheimProRegular.woff") format("woff2"),
     url("../../public/fonts/GTWalsheimProRegular.woff") format("woff");
   font-display: swap;
 }
@@ -21,6 +21,6 @@
     font-family: "GTReg";
   }
   a {
-    @apply text-webknit-blue;
+    @apply text-webknit-blue hover:underline;
   }
 }

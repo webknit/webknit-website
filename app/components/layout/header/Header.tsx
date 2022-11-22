@@ -1,10 +1,13 @@
 import { LinksFunction } from "@remix-run/server-runtime";
-import { Logo, links as logoLinks } from "~/components/branding/logo/Logo";
+import {
+  Logo,
+  links as logoLinks,
+} from "~/components/layout/header/headerLogo/HeaderLogo";
 import { Nav } from "../nav/nav";
 
-type Props = {
+interface Props {
   children?: React.ReactNode;
-};
+}
 
 export const links: LinksFunction = () => [...logoLinks()];
 
