@@ -19,20 +19,29 @@
 @layer base {
   html {
     font-family: "GTReg";
+    font-size: 100%;
   }
   h1,
   h2,
   h3,
   h4 {
     font-family: "GTBold";
+    @apply mb-8;
   }
   h1 {
     @apply text-5xl;
   }
+  h2 {
+    @apply text-2xl;
+  }
   h3 {
-    @apply text-3xl;
+    @apply text-2xl;
   }
   a {
     @apply text-webknit-blue hover:underline;
+  }
+  p,
+  li {
+    @apply mb-4;
   }
 }

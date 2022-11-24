@@ -1,15 +1,21 @@
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 
 export function Nav() {
+  const classes = "ml-2 sm:ml-6";
+  const activeClassName = `${classes} underline`;
+
   return (
     <nav>
       {/* <Link to="/">Home</Link> */}
-      <Link to="/" className="ml-2 sm:ml-6">
+      <NavLink
+        to="/about"
+        className={({ isActive }) => (isActive ? activeClassName : classes)}
+      >
         About
-      </Link>
-      <Link to="/" className="ml-2 sm:ml-6">
+      </NavLink>
+      <NavLink to="/" className="ml-2 sm:ml-6">
         Blog
-      </Link>
+      </NavLink>
     </nav>
   );
 }

@@ -17,7 +17,7 @@ export function Section({ className, children, id, element }: Props) {
   return React.createElement(checkTag(), {
     children: children,
     id: id,
-    className: `py-8 md:py-12 ${className}`,
+    className: `py-8 md:py-16 ${className}`,
   });
   // <tag id={id} className={`py-8 md:py-12 ${className}`}>
   //   {children}
