@@ -5,7 +5,7 @@ export function Nav() {
   const activeClassName = `${classes} underline`;
 
   return (
-    <nav>
+    <nav className="flex">
       {/* <Link to="/">Home</Link> */}
       <NavLink
         to="/about"
@@ -16,6 +16,7 @@ export function Nav() {
       <NavLink to="/" className="ml-2 sm:ml-6">
         Blog
       </NavLink>
+      <div className="ml-2 sm:ml-6">☀️</div>
     </nav>
   );
 }

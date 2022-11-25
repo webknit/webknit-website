@@ -6,6 +6,10 @@ module.exports = {
       colors: {
         "webknit-blue": "#0026ff",
       },
+      fontFamily: {
+        gtreg: "GTReg",
+        gtbolb: "GTBold",
+      },
     },
   },
   plugins: [],
