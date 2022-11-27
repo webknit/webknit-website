@@ -2,7 +2,7 @@
   fill: #d7983e;
 }
 
-.c-logo--animate .c-logo__horn {
+.animate-logo .c-logo__horn {
   animation: fadeIn 0.2s linear forwards;
   animation-delay: 1.8s;
   opacity: 0;
@@ -12,7 +12,7 @@
   fill: #87786c;
 }
 
-.c-logo--animate .c-logo__hair {
+.animate-logo .c-logo__hair {
   animation: fadeIn 0.2s linear forwards;
   animation-delay: 1.9s;
   opacity: 0;
@@ -22,7 +22,7 @@
   fill: #f8eed0;
 }
 
-.c-logo--animate .c-logo__eye-sockets {
+.animate-logo .c-logo__eye-sockets {
   animation: fadeIn 0.2s linear forwards;
   animation-delay: 2s;
   opacity: 0;
@@ -32,7 +32,7 @@
   fill: #eed298;
 }
 
-.c-logo--animate .c-logo__face-bg {
+.animate-logo .c-logo__face-bg {
   animation: fadeIn 0.2s linear forwards 2.1s;
   opacity: 0;
 }
@@ -41,7 +41,7 @@
   fill: #f8eed0;
 }
 
-.c-logo--animate .c-logo__mouth {
+.animate-logo .c-logo__mouth {
   animation: fadeIn 0.2s linear forwards;
   animation-delay: 2.2s;
   opacity: 0;
@@ -51,29 +51,29 @@
   fill: #3d3d3d;
 }
 
-.c-logo--animate .c-logo__eye--left {
+.animate-logo .c-logo__eye--left {
   animation: fadeIn 0.2s linear forwards 2.4s, blink 5s infinite 7s;
   transform-origin: 50%;
 }
 
-.c-logo--right {
+.c-logo__eye--right {
   transform: rotate(0);
 }
 
-.c-logo--animate .c-logo--right {
+.animate-logo .c-logo__eye--right {
   animation: fadeIn 0.3s linear forwards 2.7s, wink 5s forwards 2.9s,
     winkInfinite 15s forwards infinite 10s;
   transform-origin: 50%;
 }
 
 .c-logo__face {
-  stroke-width: 3;
+  strokewidth: 3;
 }
 
-.c-logo--animate .c-logo__face {
+.animate-logo .c-logo__face {
   fill: white;
 }
-.c-logo--animate .c-logo__face {
+.animate-logo .c-logo__face {
   stroke-dasharray: 5267.20556640625;
   stroke-dashoffset: 5267.20556640625;
   animation: dash 3.5s linear forwards, fillLines 0.3s linear forwards 1.3s;
@@ -128,7 +128,7 @@
 @keyframes fillLines {
   to {
     fill: #3d3d3d;
-    stroke-width: 0;
+    strokewidth: 0;
   }
 }
 

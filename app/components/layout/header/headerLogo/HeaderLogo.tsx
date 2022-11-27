@@ -8,15 +8,9 @@ export const links: LinksFunction = () => {
 };
 
 export const Logo = () => {
-  const logoRef = createRef<HTMLDivElement>();
-
-  useEffect(() => {
-    logoRef.current?.classList.add("c-logo--animate");
-  }, []);
-
   return (
     <Link to="/" aria-label="Link to homepage">
-      <div ref={logoRef}>
+      <div>
         <svg
           className="c-header__logo c-logo"
           xmlns="http://www.w3.org/2000/svg"

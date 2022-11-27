@@ -1,3 +1,5 @@
+import { AnimatePresence, motion, Variants } from "framer-motion";
+
 import { Logo } from "../layout/header/headerLogo/HeaderLogo";
 import { Section } from "../layout/section/Section";
 
@@ -6,17 +8,23 @@ export function Banner() {
     <Section>
       <h1 className="mx-auto mb-16 max-w-[80%] text-center text-2xl md:text-5xl">
         Hello, I'm Shane Prendergast. <br></br>
-        <span className="mt-8 block font-gtreg text-3xl">
+        <span className="mt-8 block font-gtreg text-3xl text-gray-600">
           I make things online.
         </span>
       </h1>
 
-      <div className=" container mx-auto grid grid-cols-3 items-center gap-4 md:grid-cols-5">
-        <div className="">
-          <div className="border-grey-100 relative flex flex min-h-[200px] flex-col items-center justify-center justify-center rounded-lg border border-solid bg-green-50">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-4 md:grid-cols-2 lg:grid-cols-5 ">
+        <motion.div
+          className="order-4 sm:order-4 lg:order-1"
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-green-50 px-4 sm:min-h-[200px] lg:min-h-[200px]">
             <div className="text-center">
               <svg
-                className="c-ql__icon mx-auto mb-4 w-1/3"
+                className="c-ql__icon mx-auto mb-4 w-1/5 sm:w-1/3 "
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 167.52 109.22"
@@ -50,29 +58,41 @@ export function Banner() {
               <h2 className="mb-0 font-gtreg text-base">Chasing Challenges</h2>
             </div>
           </div>
-        </div>
-        <div className=" grid grid-rows-1">
-          <div className="border-grey-100 relative flex flex min-h-[250px] flex-col items-center justify-center justify-center rounded-lg border border-solid bg-red-50">
+        </motion.div>
+        <motion.div
+          className="order-2"
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center  rounded-lg border border-solid bg-red-50 px-4 sm:min-h-[200px] lg:min-h-[250px]">
             <div className="text-center">
               <img
                 src="http://rideforthechild.co.uk/wp-content/themes/RFTC/img/logo.svg"
                 alt="Ride for the child loog"
-                className="mb-4 inline-block w-1/3"
+                className="mb-4 inline-block w-1/5 sm:w-1/3"
               />
               <h2 className="mb-0 font-gtreg text-base">Ride for the Child</h2>
             </div>
           </div>
-        </div>
-        <div className="h-full">
-          <div className="border-grey-100 relative flex flex min-h-[300px] flex-col items-center justify-center justify-center rounded-lg border border-solid bg-purple-50">
+        </motion.div>
+        <motion.div
+          className="order-1 sm:order-1 lg:order-3"
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center  rounded-lg border border-solid bg-purple-50 px-4 sm:min-h-[200px] lg:min-h-[300px]">
             <div className="text-center">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 16 16"
                 focusable="false"
-                className="mb-4 inline-block w-1/3"
+                className="mb-4 inline-block w-1/5 sm:w-1/3"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M2.45 7.4 7.2 1.067a1 1 0 0 1 1.6 0L13.55 7.4a1 1 0 0 1 0 1.2L8.8 14.933a1 1 0 0 1-1.6 0L2.45 8.6a1 1 0 0 1 0-1.2z"></path>
@@ -80,12 +100,18 @@ export function Banner() {
               <h2 className="mb-0 font-gtreg text-base">Black Diamond</h2>
             </div>
           </div>
-        </div>
-        <div className="">
-          <div className="border-grey-100 relative flex min-h-[250px] flex-col items-center justify-center rounded-lg border border-solid bg-blue-50">
+        </motion.div>
+        <motion.div
+          className="order-3 sm:order-4"
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-blue-50 px-4 sm:min-h-[200px] lg:min-h-[250px]">
             <div className="text-center">
               <svg
-                className="mb-4 inline-block w-1/3"
+                className="mb-4 inline-block w-1/5 sm:w-1/3"
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 172.17 122.75"
@@ -369,19 +395,25 @@ export function Banner() {
               <h2 className="mb-0 font-gtreg text-base">MemoryUp</h2>
             </div>
           </div>
-        </div>
-        <div className="">
-          <div className="border-grey-100 border-grey-100 relative flex flex min-h-[200px] flex-col items-center justify-center justify-center rounded-lg border border-solid bg-orange-50">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="lg order-5 sm:col-span-2 lg:col-span-1"
+        >
+          <div className="border-grey-100 border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center  rounded-lg border border-solid bg-orange-50 px-4 sm:min-h-[200px] lg:min-h-[200px]">
             <div className="text-center">
               <img
                 src="https://pbs.twimg.com/profile_images/1521761497340391424/g9HO4dgs_400x400.jpg"
                 alt=""
-                className="mb-4 inline-block w-1/3 rounded-full"
+                className="mb-4 inline-block w-1/5 rounded-full sm:w-1/3"
               />
               <h2 className="mb-0 font-gtreg text-base">About</h2>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Section>
   );

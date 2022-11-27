@@ -6,7 +6,7 @@ import { links as logoLinks } from "~/components/layout/header/headerLogo/Header
 import { Header } from "~/components/layout/header/Header";
 import { Footer } from "~/components/layout/footer/Footer";
 import { Layout } from "~/components/layout/Layout";
-import { Banner } from "~/components/banner/Banner";
+import { Banner } from "~/components/banner/HomeBanner";
 import { Section } from "~/components/layout/section/Section";
 
 export const links: LinksFunction = () => [...logoLinks()];
