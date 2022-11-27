@@ -91,11 +91,11 @@
 }
 
 .dark.animate-logo .c-logo__face {
-  fill: white;
+  fill: #101827;
   stroke-dasharray: 5267.20556640625;
   stroke-dashoffset: 5267.20556640625;
   animation: dash 3.5s linear forwards, fillLinesDark 0.3s linear forwards 1.3s;
-  stroke: #101827;
+  stroke: white;
 }
 
 @keyframes winkInfinite {

@@ -11,7 +11,7 @@ const itemAnimation = {
   viewport: { once: true },
 };
 
-export function Banner() {
+export function HomeBanner() {
   return (
     <Section className="dark:bg-gray-800">
       <h1 className="mx-auto mb-16 max-w-[80%] text-center text-2xl dark:text-white md:text-5xl">

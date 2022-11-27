@@ -6,8 +6,9 @@ import { links as logoLinks } from "~/components/layout/header/headerLogo/Header
 import { Header } from "~/components/layout/header/Header";
 import { Footer } from "~/components/layout/footer/Footer";
 import { Layout } from "~/components/layout/Layout";
-import { Banner } from "~/components/banner/HomeBanner";
+
 import { Section } from "~/components/layout/section/Section";
+import { Banner } from "~/components/banner/Banner";
 
 export const links: LinksFunction = () => [...logoLinks()];
 
@@ -16,12 +17,7 @@ export default function About() {
 
   return (
     <Layout>
-      <Banner />
-      <Section className="bg-gray-100">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2">
-          <h2>About</h2>
-        </div>
-      </Section>
+      <Banner text="About" />
     </Layout>
   );
 }

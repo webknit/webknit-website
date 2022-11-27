@@ -6,7 +6,7 @@ import { links as logoLinks } from "~/components/layout/header/headerLogo/Header
 import { Header } from "~/components/layout/header/Header";
 import { Footer } from "~/components/layout/footer/Footer";
 import { Layout } from "~/components/layout/Layout";
-import { Banner } from "~/components/banner/HomeBanner";
+import { HomeBanner } from "~/components/banner/HomeBanner";
 import { Section } from "~/components/layout/section/Section";
 import DividerList from "~/components/dividerList/DividerList";
 
@@ -17,7 +17,7 @@ export default function Index() {
 
   return (
     <Layout>
-      <Banner />
+      <HomeBanner />
       <Section className="bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2">
           <div>
@@ -27,7 +27,7 @@ export default function Index() {
               Hello, my name is Shane Prendergast. I’m a {DOB} year old
               developer who lives in Macclesfield, UK. I have a BSc (Hons) Web
               Design and Development degree from the University of Hull and I’m
-              currently working at Nexer.
+              currently working at Gather Content.
             </p>
 
             <p className="mb-0">

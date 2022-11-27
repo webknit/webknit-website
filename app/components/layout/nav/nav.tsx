@@ -32,14 +32,14 @@ export function Nav() {
       >
         About
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to="/blog"
         className={({ isActive }: { isActive: boolean }) =>
           isActive ? activeClassName : classes
         }
       >
         Blog
-      </NavLink>
+      </NavLink> */}
       <div className="ml-2 w-8 sm:ml-6">
         <div className="relative h-[35px] w-[35px] overflow-hidden">
           <button
@@ -53,6 +53,12 @@ export function Nav() {
                 document.documentElement.classList.add("dark");
               }
               setDarkMode(!darkMode);
+
+              document.documentElement.classList.remove("animate-logo");
+
+              setTimeout(() => {
+                document.documentElement.classList.add("animate-logo");
+              }, 100);
             }}
             aria-label={`Turn on ${darkMode ? "dark" : "light"} mode`}
           >
