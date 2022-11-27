@@ -24,14 +24,14 @@ export function Nav() {
   return (
     <nav className="flex items-center">
       {/* <Link to="/">Home</Link> */}
-      <NavLink
+      {/* <NavLink
         to="/about"
         className={({ isActive }: { isActive: boolean }) =>
           isActive ? activeClassName : classes
         }
       >
         About
-      </NavLink>
+      </NavLink> */}
       {/* <NavLink
         to="/blog"
         className={({ isActive }: { isActive: boolean }) =>
