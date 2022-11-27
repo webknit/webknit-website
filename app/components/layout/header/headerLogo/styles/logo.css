@@ -67,17 +67,22 @@
 }
 
 .c-logo__face {
-  strokewidth: 3;
+  stroke-width: 3;
 }
 
 .animate-logo .c-logo__face {
   fill: white;
 }
+
 .animate-logo .c-logo__face {
   stroke-dasharray: 5267.20556640625;
   stroke-dashoffset: 5267.20556640625;
   animation: dash 3.5s linear forwards, fillLines 0.3s linear forwards 1.3s;
   stroke: #3d3d3d;
+}
+
+.dark.animate-logo .c-logo__face {
+  stroke: rgba(255, 255, 255, 0.5);
 }
 
 @keyframes winkInfinite {

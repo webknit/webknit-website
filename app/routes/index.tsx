@@ -18,7 +18,7 @@ export default function Index() {
   return (
     <Layout>
       <Banner />
-      <Section className="bg-gray-100">
+      <Section className="bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2">
           <div>
             <h2>About</h2>
@@ -79,7 +79,7 @@ export default function Index() {
           </div>
         </div>
       </Section>
-      <Section className="">
+      <Section className="dark:bg-gray-800">
         <div className="container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2">
           <div className="">
             <h2 className="">Work</h2>
@@ -207,8 +207,8 @@ export default function Index() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2">
-              <div className="">
+            <div className="mb-6 grid grid-cols-2 gap-4">
+              <div className="border-grey-100 mb-6 border-b border-solid pb-6">
                 <div className="">
                   <h3 className="mb-0 text-base">
                     <a href="https://password-generator-webknit.vercel.app/">

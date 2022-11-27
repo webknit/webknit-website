@@ -40,6 +40,9 @@
   a {
     @apply text-webknit-blue hover:underline;
   }
+  .dark a {
+    @apply text-white underline hover:underline-offset-2;
+  }
   p,
   li {
     @apply mb-4;

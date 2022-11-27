@@ -3,25 +3,32 @@ import { AnimatePresence, motion, Variants } from "framer-motion";
 import { Logo } from "../layout/header/headerLogo/HeaderLogo";
 import { Section } from "../layout/section/Section";
 
+const itemAnimation = {
+  initial: { opacity: 0, scale: 0.5 },
+  whileInView: { opacity: 1, scale: 1 },
+  transition: { duration: 0.5, delay: 0.5 },
+  viewport: { once: true },
+};
+
 export function Banner() {
   return (
-    <Section>
-      <h1 className="mx-auto mb-16 max-w-[80%] text-center text-2xl md:text-5xl">
+    <Section className="dark:bg-gray-800">
+      <h1 className="mx-auto mb-16 max-w-[80%] text-center text-2xl dark:text-white md:text-5xl">
         Hello, I'm Shane Prendergast. <br></br>
-        <span className="mt-8 block font-gtreg text-3xl text-gray-600">
+        <span className="mt-8 block font-gtreg text-3xl text-gray-600 dark:text-white">
           I make things online.
         </span>
       </h1>
 
-      <div className="container mx-auto grid grid-cols-1 items-center gap-4 md:grid-cols-2 lg:grid-cols-5 ">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-4 dark:text-white md:grid-cols-2 lg:grid-cols-5">
         <motion.div
-          className="order-4 sm:order-4 lg:order-1"
+          className="relative order-4 hover:z-10 sm:order-4 lg:order-1"
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-green-50 px-4 sm:min-h-[200px] lg:min-h-[200px]">
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-green-50 px-4 dark:border-none  dark:bg-indigo-900 sm:min-h-[200px] lg:min-h-[200px]">
             <div className="text-center">
               <svg
                 className="c-ql__icon mx-auto mb-4 w-1/5 sm:w-1/3 "
@@ -55,7 +62,7 @@ export function Banner() {
                   fill="#3d5afe"
                 ></path>
               </svg>
-              <h2 className="mb-0 font-gtreg text-base">Chasing Challenges</h2>
+              <h2 className="mb-0 font-gtreg text-base ">Chasing Challenges</h2>
             </div>
           </div>
         </motion.div>
@@ -66,7 +73,7 @@ export function Banner() {
           transition={{ duration: 0.5, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center  rounded-lg border border-solid bg-red-50 px-4 sm:min-h-[200px] lg:min-h-[250px]">
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-red-50 px-4 dark:border-none dark:bg-indigo-900 sm:min-h-[200px] lg:min-h-[250px]">
             <div className="text-center">
               <img
                 src="http://rideforthechild.co.uk/wp-content/themes/RFTC/img/logo.svg"
@@ -84,11 +91,11 @@ export function Banner() {
           transition={{ duration: 0.5, delay: 0.7 }}
           viewport={{ once: true }}
         >
-          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center  rounded-lg border border-solid bg-purple-50 px-4 sm:min-h-[200px] lg:min-h-[300px]">
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-purple-50 px-4 dark:border-none dark:bg-indigo-900 sm:min-h-[200px] lg:min-h-[300px]">
             <div className="text-center">
               <svg
                 stroke="currentColor"
-                fill="currentColor"
+                fill="#000000"
                 strokeWidth="0"
                 viewBox="0 0 16 16"
                 focusable="false"
@@ -108,7 +115,7 @@ export function Banner() {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-blue-50 px-4 sm:min-h-[200px] lg:min-h-[250px]">
+          <div className="border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-blue-50 px-4 dark:border-none dark:bg-indigo-900 sm:min-h-[200px] lg:min-h-[250px]">
             <div className="text-center">
               <svg
                 className="mb-4 inline-block w-1/5 sm:w-1/3"
@@ -403,7 +410,7 @@ export function Banner() {
           viewport={{ once: true }}
           className="lg order-5 sm:col-span-2 lg:col-span-1"
         >
-          <div className="border-grey-100 border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center  rounded-lg border border-solid bg-orange-50 px-4 sm:min-h-[200px] lg:min-h-[200px]">
+          <div className="border-grey-100 border-grey-100 relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-orange-50 px-4 dark:border-none dark:bg-indigo-900 sm:min-h-[200px] lg:min-h-[200px]">
             <div className="text-center">
               <img
                 src="https://pbs.twimg.com/profile_images/1521761497340391424/g9HO4dgs_400x400.jpg"

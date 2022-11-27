@@ -12,7 +12,7 @@ export function Footer() {
       transition={{ duration: 0.3, delay: 0.2 }}
     >
       <Section
-        className="bg-webknit-blue text-white"
+        className="bg-webknit-blue text-white dark:bg-gray-900"
         id="footer"
         element="footer"
       >
