@@ -82,19 +82,19 @@
   stroke-width: 3;
 }
 
-.animate-logo .c-logo__face {
+.animate-logo:not(.dark) .c-logo__face {
   fill: white;
-}
-
-.animate-logo .c-logo__face {
   stroke-dasharray: 5267.20556640625;
   stroke-dashoffset: 5267.20556640625;
-  animation: dash 3.5s linear forwards, fillLines 0.3s linear forwards 0s;
+  animation: dash 3.5s linear forwards, fillLines 0.3s linear forwards 1.3s;
   stroke: #3d3d3d;
 }
 
 .dark.animate-logo .c-logo__face {
-  animation: dash 3.5s linear forwards, fillLinesDark 0.3s linear forwards 0s;
+  fill: white;
+  stroke-dasharray: 5267.20556640625;
+  stroke-dashoffset: 5267.20556640625;
+  animation: dash 3.5s linear forwards, fillLinesDark 0.3s linear forwards 1.3s;
   stroke: #101827;
 }
 
@@ -146,14 +146,12 @@
 @keyframes fillLines {
   to {
     fill: #3d3d3d;
-    strokewidth: 0;
   }
 }
 
 @keyframes fillLinesDark {
   to {
     fill: #101827;
-    strokewidth: 0;
   }
 }
 

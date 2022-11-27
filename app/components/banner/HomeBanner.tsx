@@ -21,9 +21,9 @@ export function Banner() {
         </span>
       </h1>
 
-      <div className="container mx-auto grid grid-cols-1 items-center gap-4 dark:text-white md:grid-cols-2 lg:grid-cols-5">
+      <div className="container mx-auto grid items-center gap-4 dark:text-white md:grid-cols-2 lg:grid-cols-5">
         <motion.div
-          className="relative order-4 hover:z-10 sm:order-4 lg:order-1"
+          className="relative"
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -71,7 +71,7 @@ export function Banner() {
           </a>
         </motion.div>
         <motion.div
-          className="order-2"
+          className=""
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -83,16 +83,16 @@ export function Banner() {
           >
             <div className="text-center">
               <img
-                src="http://rideforthechild.co.uk/wp-content/themes/RFTC/img/logo.svg"
+                src="/images/RFTC.png"
                 alt="Ride for the child loog"
-                className="mb-4 inline-block w-1/5 sm:w-1/3"
+                className="mb-4 inline-block w-1/5 max-w-[300px] sm:w-1/3 lg:max-w-full"
               />
               <h2 className="mb-0 font-gtreg text-base">Ride for the Child</h2>
             </div>
           </a>
         </motion.div>
         <motion.div
-          className="order-1 sm:order-1 lg:order-3"
+          className=""
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
@@ -119,7 +119,7 @@ export function Banner() {
           </a>
         </motion.div>
         <motion.div
-          className="order-3 sm:order-4"
+          className=""
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -421,7 +421,7 @@ export function Banner() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="lg order-5 sm:col-span-2 lg:col-span-1"
+          className=" sm:col-span-2 lg:col-span-1"
         >
           <Link
             to="/about"
