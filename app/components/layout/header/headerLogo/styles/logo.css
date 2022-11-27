@@ -2,6 +2,10 @@
   fill: #d7983e;
 }
 
+.dark .c-logo__horn {
+  fill: #c484eb;
+}
+
 .animate-logo .c-logo__horn {
   animation: fadeIn 0.2s linear forwards;
   animation-delay: 1.8s;
@@ -10,6 +14,10 @@
 
 .c-logo__hair {
   fill: #87786c;
+}
+
+.dark .c-logo__hair {
+  fill: #823f51;
 }
 
 .animate-logo .c-logo__hair {
@@ -30,6 +38,10 @@
 
 .c-logo__face-bg {
   fill: #eed298;
+}
+
+.dark .c-logo__face-bg {
+  fill: #ebcad5;
 }
 
 .animate-logo .c-logo__face-bg {
@@ -77,12 +89,13 @@
 .animate-logo .c-logo__face {
   stroke-dasharray: 5267.20556640625;
   stroke-dashoffset: 5267.20556640625;
-  animation: dash 3.5s linear forwards, fillLines 0.3s linear forwards 1.3s;
+  animation: dash 3.5s linear forwards, fillLines 0.3s linear forwards 0s;
   stroke: #3d3d3d;
 }
 
 .dark.animate-logo .c-logo__face {
-  stroke: rgba(255, 255, 255, 0.5);
+  animation: dash 3.5s linear forwards, fillLinesDark 0.3s linear forwards 0s;
+  stroke: #101827;
 }
 
 @keyframes winkInfinite {
@@ -133,6 +146,13 @@
 @keyframes fillLines {
   to {
     fill: #3d3d3d;
+    strokewidth: 0;
+  }
+}
+
+@keyframes fillLinesDark {
+  to {
+    fill: #101827;
     strokewidth: 0;
   }
 }

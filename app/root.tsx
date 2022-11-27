@@ -17,12 +17,32 @@ import { Header } from "./components/layout/header/Header";
 import { Footer } from "./components/layout/footer/Footer";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/favicon/apple-touch-icon.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      href: "/favicon/favicon-32x32.png",
+    },
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      href: "/favicon/favicon-16x16.png",
+    },
+    { rel: "manifest", href: "/favicon/site.webmanifest" },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Remix Notes",
+  title: "Webknit",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -50,8 +70,8 @@ export default function App() {
 
   useEffect(() => {
     if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
+      localStorage.webknitTheme === "dark" ||
+      (!("webknitTheme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       document.documentElement.classList.add("dark");

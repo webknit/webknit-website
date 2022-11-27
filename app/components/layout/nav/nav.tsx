@@ -41,11 +41,17 @@ export function Nav() {
         Blog
       </NavLink>
       <div className="ml-2 w-8 sm:ml-6">
-        <div className="relative h-[30px] overflow-hidden">
+        <div className="relative h-[35px] w-[35px] overflow-hidden">
           <button
+            className="h-[32px] w-[32px]"
             onClick={() => {
-              if (darkMode) document.documentElement.classList.remove("dark");
-              else document.documentElement.classList.add("dark");
+              if (darkMode) {
+                //localStorage.setItem("webknitTheme", "light");
+                document.documentElement.classList.remove("dark");
+              } else {
+                // localStorage.setItem("webknitTheme", "dark");
+                document.documentElement.classList.add("dark");
+              }
               setDarkMode(!darkMode);
             }}
             aria-label={`Turn on ${darkMode ? "dark" : "light"} mode`}
@@ -53,7 +59,7 @@ export function Nav() {
             <motion.span
               animate={darkMode ? "open" : "closed"}
               variants={variants}
-              className="absolute top-0"
+              className="absolute top-0 left-0"
             >
               <svg
                 className="w-full"
@@ -120,7 +126,7 @@ export function Nav() {
             <motion.span
               animate={!darkMode ? "open" : "closed"}
               variants={variants}
-              className="absolute top-0"
+              className="absolute top-0 left-0"
             >
               <svg
                 className="w-full"
