@@ -14,9 +14,9 @@ const itemAnimation = {
 export function HomeBanner() {
   return (
     <Section className="dark:bg-gray-800">
-      <h1 className="mx-auto mb-16 max-w-[80%] text-center text-2xl dark:text-white md:text-5xl">
+      <h1 className="mx-auto mb-16 max-w-[80%] text-center text-4xl dark:text-white md:text-5xl">
         Hello, I'm Shane Prendergast. <br></br>
-        <span className="mt-8 block font-gtreg text-3xl text-gray-600 dark:text-white">
+        <span className="mt-8 block font-gtreg text-2xl text-gray-600 dark:text-white">
           I make things online.
         </span>
       </h1>
