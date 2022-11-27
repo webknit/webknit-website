@@ -82,11 +82,13 @@ export function Banner() {
             className="border-grey-100 dark:hover-white relative flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-solid bg-red-50 px-4 text-gray-900 hover:border-sky-300 hover:no-underline dark:border-gray-800 dark:bg-cyan-700  dark:no-underline dark:hover:border-white sm:min-h-[200px] lg:min-h-[250px]"
           >
             <div className="text-center">
-              <img
-                src="/images/RFTC.png"
-                alt="Ride for the child loog"
-                className="mb-4 inline-block w-1/5 max-w-[300px] sm:w-1/3 lg:max-w-full"
-              />
+              <div className="mb-4 inline-block w-1/5 max-w-[300px] rounded-full dark:bg-white sm:w-1/3 lg:max-w-full">
+                <img
+                  src="/images/RFTC.png"
+                  alt="Ride for the child loog"
+                  className="  "
+                />
+              </div>
               <h2 className="mb-0 font-gtreg text-base">Ride for the Child</h2>
             </div>
           </a>
