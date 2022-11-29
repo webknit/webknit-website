@@ -57,8 +57,6 @@ export default function App() {
   const isLoaded = useRef(false);
 
   useEffect(() => {
-    console.log(isLoaded, htmlRef);
-
     if (
       !isLoaded.current &&
       !htmlRef.current?.classList.contains("animate-logo")
