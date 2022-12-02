@@ -132,7 +132,7 @@ export default function App() {
       </head>
       <body className="h-full text-gray-900 dark:text-white">
         <MotionConfig reducedMotion="user">
-          {/* <Header /> */}
+          <Header />
           <Outlet />
           {/* <Footer /> */}
           <ScrollRestoration />
