@@ -13,7 +13,7 @@ import { Banner } from "~/components/banner/Banner";
 export const links: LinksFunction = () => [...logoLinks()];
 
 export default function About() {
-  const DOB = differenceInYears(new Date(), new Date(1986, 08, 17));
+  // const DOB = differenceInYears(new Date(), new Date(1986, 08, 17));
 
   return (
     <Layout>
