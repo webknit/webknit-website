@@ -84,7 +84,7 @@ export default function Index() {
             </div>
           </div>
         </Section>
-        {/* <Section className="bg-gray-100 dark:bg-gray-800">
+        <Section className="bg-gray-100 dark:bg-gray-800">
           <div className="container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2">
             <div className="">
               <h2 className="">Work</h2>
@@ -296,7 +296,7 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </Section> */}
+        </Section>
       </main>
     </>
   );
