@@ -21,7 +21,7 @@ export default function Index() {
 
   return (
     <Layout>
-      {/* <HomeBanner /> */}
+      <HomeBanner />
       <Section className="bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2">
           <div>
