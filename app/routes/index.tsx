@@ -12,45 +12,8 @@ import { Layout } from "~/components/layout/Layout";
 import { HomeBanner } from "~/components/banner/HomeBanner";
 import { Section } from "~/components/layout/section/Section";
 import DividerList from "~/components/dividerList/DividerList";
-import { db, auth } from "~/utils/firebase";
-import {
-  collection,
-  addDoc,
-  setDoc,
-  doc,
-  updateDoc,
-  increment,
-} from "firebase/firestore";
-import { getDatabase, ref, set } from "firebase/database";
 
 export const links: LinksFunction = () => [...logoLinks()];
-
-export const loader: LoaderFunction = async () => {
-  const addData = async () => {
-    const authentication = await auth.signInAnonymously();
-
-    try {
-      // const docRef = await setDoc(doc(db, "webknit-pageviews", "home"), {
-      //   count: increment(1),
-      // });
-
-      const pageRef = doc(db, "webknit-pageviews", "home");
-
-      // Atomically increment the population of the city by 50.
-      const docRef = await updateDoc(pageRef, {
-        count: increment(1),
-      });
-
-      console.log("Document written with ID: ", docRef);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  };
-
-  addData();
-
-  return null;
-};
 
 export default function Index() {
   const DOB = differenceInYears(new Date(), new Date(1986, 08, 17));

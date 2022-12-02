@@ -1,4 +1,9 @@
-import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import type {
+  LinksFunction,
+  LoaderArgs,
+  LoaderFunction,
+  MetaFunction,
+} from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -15,6 +20,18 @@ import tailwindStylesheetUrl from "./styles/styles.min.css";
 import { createRef, useEffect, useRef } from "react";
 import { Header } from "./components/layout/header/Header";
 import { Footer } from "./components/layout/footer/Footer";
+
+import { db, auth } from "~/utils/firebase";
+
+import {
+  collection,
+  addDoc,
+  setDoc,
+  doc,
+  updateDoc,
+  increment,
+} from "firebase/firestore";
+import { getDatabase, ref, set } from "firebase/database";
 
 export const links: LinksFunction = () => {
   return [
@@ -51,6 +68,34 @@ export const meta: MetaFunction = () => ({
 //     user: await getUser(request),
 //   });
 // }
+
+export const loader: LoaderFunction = async (params) => {
+  const url = new URL(params.request.url);
+  let pathName = url.pathname;
+
+  if (pathName === "/") pathName = "home";
+
+  const addData = async () => {
+    const authentication = await auth.signInAnonymously();
+
+    try {
+      const res = await setDoc(
+        doc(db, "webknit-pageviews", pathName),
+        {
+          count: increment(1),
+        },
+        { merge: true }
+      );
+
+      console.log("Document written with ID: ", res);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+
+  if (process.env.IS_PROD) addData();
+  return null;
+};
 
 export default function App() {
   const htmlRef = createRef<HTMLHtmlElement>();
