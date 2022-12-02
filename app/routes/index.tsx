@@ -28,16 +28,16 @@ export default function Index() {
             <h2>About</h2>
 
             <p className="mb-0">
-              Hello, my name is Shane Prendergast. I’m a {DOB} year old
+              Hello, my name is Shane Prendergast. I'm a {DOB} year old
               developer who lives in Macclesfield, UK. I have a BSc (Hons) Web
-              Design and Development degree from the University of Hull and I’m
+              Design and Development degree from the University of Hull and I'm
               currently working at Gather Content.
             </p>
 
             <p className="mb-0">
               Primarily a Front-End Developer, I also have a strong interest in
-              Design and UX. At the moment I’m working with various Javascript
-              frameworks and I’m passionate about creating - and constantly
+              Design and UX. At the moment I'm working with various Javascript
+              frameworks and I'm passionate about creating - and constantly
               leaning about - Web Accessibility.
             </p>
 
@@ -51,7 +51,7 @@ export default function Index() {
           <div>
             <h2>Experience</h2>
 
-            {/* <DividerList
+            <DividerList
               items={[
                 {
                   text: "Gather content",
@@ -79,7 +79,7 @@ export default function Index() {
                   sideText: "April 2011 - Present",
                 },
               ]}
-            /> */}
+            />
           </div>
         </div>
       </Section>
@@ -194,7 +194,7 @@ export default function Index() {
 
               <p className="mb-0">
                 Create and showcase challenges using synced activities from the
-                world’s most popular human tracking service, Strava.
+                world's most popular human tracking service, Strava.
               </p>
             </div>
 
