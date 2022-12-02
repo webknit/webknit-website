@@ -38,6 +38,7 @@ export function Footer() {
           </a>
 
           <p className="c-footer__text u-mb-0">
+            © Webknit {new Date().getFullYear()}
             <span className="block">Please don't copy, it took me ages!</span>
           </p>
         </div>
