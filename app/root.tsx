@@ -57,11 +57,11 @@ export const links: LinksFunction = () => {
   ];
 };
 
-// export const meta: MetaFunction = () => ({
-//   charset: "utf-8",
-//   title: "Webknit",
-//   viewport: "width=device-width,initial-scale=1",
-// });
+export const meta: MetaFunction = () => ({
+  charset: "utf-8",
+  title: "Webknit",
+  viewport: "width=device-width,initial-scale=1",
+});
 
 // export async function loader({ request }: LoaderArgs) {
 //   return json({
@@ -127,7 +127,7 @@ export default function App() {
   return (
     <html lang="en" className="h-full" ref={htmlRef}>
       <head>
-        {/* <Meta /> */}
+        <Meta />
         <Links />
       </head>
       <body className="h-full text-gray-900 dark:text-white">
