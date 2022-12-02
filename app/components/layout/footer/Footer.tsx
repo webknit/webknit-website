@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 export function Footer() {
   return (
+    <div></div>
     // <motion.div
     //   //   initial={{ opacity: 0 }}
     //   //   whileInView={{ opacity: 1 }}
