@@ -60,7 +60,8 @@ function handleRequest(request, responseStatusCode, responseHeaders, remixContex
 var root_exports = {};
 __export(root_exports, {
   default: () => App,
-  links: () => links2
+  links: () => links2,
+  loader: () => loader
 });
 var import_react4 = require("@remix-run/react"), import_framer_motion3 = require("framer-motion");
 
@@ -299,10 +300,11 @@ function Footer() {
           /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("p", {
             className: "c-footer__text u-mb-0",
             children: [
-              "\xA9 Webknit ",
-              new Date().getFullYear(),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
-              "Please don\u2019t copy, it took me ages!"
+              "Webknit 2022",
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                className: "block",
+                children: "Please don't copy, it took me ages!"
+              })
             ]
           })
         ]
@@ -311,8 +313,18 @@ function Footer() {
   });
 }
 
+// app/utils/firebase.ts
+var import_app = __toESM(require("firebase/compat/app")), import_auth = require("firebase/compat/auth"), import_firestore = require("firebase/compat/firestore"), firebaseConfig = {
+  apiKey: "AIzaSyCbBdXumN8XmZsH5uuGe1ONSpmSrbSjrnw",
+  authDomain: "webknit-ad8b9.firebaseapp.com",
+  projectId: "webknit-ad8b9",
+  storageBucket: "webknit-ad8b9.appspot.com",
+  messagingSenderId: "891324404979",
+  appId: "1:891324404979:web:21bf694812872d58a51386"
+}, app = import_app.default.apps.length ? import_app.default.app() : import_app.default.initializeApp(firebaseConfig), db = app.firestore(), auth = app.auth();
+
 // app/root.tsx
-var import_jsx_runtime6 = require("react/jsx-runtime"), links2 = () => [
+var import_firestore2 = require("firebase/firestore"), import_jsx_runtime6 = require("react/jsx-runtime"), links2 = () => [
   { rel: "stylesheet", href: styles_min_default },
   {
     rel: "apple-touch-icon",
@@ -332,7 +344,26 @@ var import_jsx_runtime6 = require("react/jsx-runtime"), links2 = () => [
     href: "/favicon/favicon-16x16.png"
   },
   { rel: "manifest", href: "/favicon/site.webmanifest" }
-];
+], loader = async (params) => {
+  let addData = async () => {
+    let pathName = new URL(params.request.url).pathname;
+    pathName === "/" && (pathName = "home");
+    let authentication = await auth.signInAnonymously();
+    try {
+      let res = await (0, import_firestore2.setDoc)(
+        (0, import_firestore2.doc)(db, "webknit-pageviews", pathName),
+        {
+          count: (0, import_firestore2.increment)(1)
+        },
+        { merge: !0 }
+      );
+      console.log("Document written with ID: ", res);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+  return process.env.IS_PROD == "TRUE" && addData(), null;
+};
 function App() {
   let htmlRef = (0, import_react5.createRef)(), isLoaded = (0, import_react5.useRef)(!1);
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("html", {
@@ -895,370 +926,180 @@ function HomeBanner() {
   });
 }
 
-// app/routes/index.tsx
-var import_jsx_runtime12 = require("react/jsx-runtime"), links5 = () => [...links()];
-function Index() {
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Layout, {
+// app/components/dividerList/DividerList.tsx
+var import_jsx_runtime12 = require("react/jsx-runtime");
+function renderItem(item) {
+  let { text, textLink, sideText } = item;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("li", {
+    className: "border-grey-100 mb-4 flex justify-between border-b border-solid pb-4",
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(HomeBanner, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Section, {
-        className: "bg-gray-50 dark:bg-gray-800",
-        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-          className: "container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
+      textLink ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
+        href: textLink,
+        children: text
+      }) : text,
+      sideText ?? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", {
+        children: "Nov 2022 - Present"
+      })
+    ]
+  }, text);
+}
+function DividerList({ items }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", {
+    children: items.map((item) => renderItem(item))
+  });
+}
+
+// app/routes/index.tsx
+var import_jsx_runtime13 = require("react/jsx-runtime"), links5 = () => [...links()];
+function Index() {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, {
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(HomeBanner, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("main", {
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Section, {
+            className: "bg-gray-50 dark:bg-gray-800",
+            children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
+              className: "container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2",
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", {
-                  children: "About"
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", {
-                  className: "mb-0",
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
                   children: [
-                    "Hello, my name is Shane Prendergast. I\u2019m a ",
-                    "23",
-                    " year old developer who lives in Macclesfield, UK. I have a BSc (Hons) Web Design and Development degree from the University of Hull and I\u2019m currently working at Gather Content."
-                  ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", {
-                  className: "mb-0",
-                  children: "Primarily a Front-End Developer, I also have a strong interest in Design and UX. At the moment I\u2019m working with various Javascript frameworks and I\u2019m passionate about creating - and constantly leaning about - Web Accessibility."
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", {
-                  className: "mb-0",
-                  children: "Webknit is an online pseudonym that I have used since my time at university and this website is a digital collection of my life, both work and personal."
-                })
-              ]
-            }),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-              children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", {
-                children: "Experience"
-              })
-            })
-          ]
-        })
-      }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Section, {
-        className: "bg-gray-100 dark:bg-gray-800",
-        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-          className: "container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-              className: "",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", {
-                  className: "",
-                  children: "Work"
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                        href: "https://fed-now.vercel.app/",
-                        children: "FedNow Explorer"
-                      })
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", {
+                      children: "About"
                     }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", {
-                      className: "mb-0",
-                      children: "Funky site for the Federal Reserve. React, Next.js, Custom Google maps, user journey, resource library."
-                    })
-                  ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                        href: "https://black-diamond.vercel.app/",
-                        children: "Black Diamond"
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", {
-                      className: "mb-0",
-                      children: "Statistics and streaks from a range of football leagues for the purposes of finding the best odds in betting markets."
-                    })
-                  ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                        href: "https://memoryup.webknit.co.uk/",
-                        children: "MemoryUp"
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", {
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", {
                       className: "mb-0",
                       children: [
-                        "Following my personal success with",
-                        " ",
-                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                          href: "https://fetest.webknit.co.uk/",
-                          children: "FEtest"
-                        }),
-                        " I decided to made a fully fledged application that allowed users to create their own Questions."
+                        "Hello, my name is Shane Prendergast. I'm a ",
+                        "23",
+                        " year old developer who lives in Macclesfield, UK. I have a BSc (Hons) Web Design and Development degree from the University of Hull and I'm currently working at Gather Content."
+                      ]
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", {
+                      className: "mb-0",
+                      children: "Primarily a Front-End Developer, I also have a strong interest in Design and UX. At the moment I'm working with various Javascript frameworks and I'm passionate about creating - and constantly leaning about - Web Accessibility."
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", {
+                      className: "mb-0",
+                      children: "Webknit is an online pseudonym that I have used since my time at university and this website is a digital collection of my life, both work and personal."
+                    })
+                  ]
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", {
+                      children: "Experience"
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(DividerList, {
+                      items: [
+                        {
+                          text: "Gather content",
+                          textLink: "https://www.gathercontent.com/",
+                          sideText: "Nov 2022 - Present"
+                        },
+                        {
+                          text: "Nexer (formerly Sigma)",
+                          textLink: "https://www.nexerdigital.com/",
+                          sideText: "Oct 2018 - June 2022"
+                        },
+                        {
+                          text: "Stein IAS",
+                          textLink: "https://www.steinias.com/",
+                          sideText: "Sept 2014 - Oct 2018"
+                        },
+                        {
+                          text: "McCann Manchester",
+                          textLink: "https://www.gathercontent.com/",
+                          sideText: "Jan 2013 - Sept 2014"
+                        },
+                        {
+                          text: "Webknit",
+                          textLink: "https://www.webknit.co.uk",
+                          sideText: "April 2011 - Present"
+                        }
                       ]
                     })
                   ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "grid grid-cols-2",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "https://www.royalroms.com/",
-                            children: "RoyalRoms"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://www.smartbow.webknit.co.uk/",
-                            children: "Smartbow"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "https://westernislescruises.co.uk/",
-                            children: "Westnern Isles Cruises"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://www.beardrevered.com/",
-                            children: "Beardrevered"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://nickandsteph.webknit.co.uk/",
-                            children: "Nick & Steph"
-                          })
-                        })
-                      })
-                    })
-                  ]
-                })
-              ]
-            }),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-              className: "o-flex__col o-flex__col--6",
-              children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", {
-                  className: "u-mb-8",
-                  children: "Play"
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                        href: "http://rideforthechild.co.uk/",
-                        children: "Ride For The Child"
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", {
-                      className: "mb-0",
-                      children: "In September 2016 I cycled 3200 miles across America over a period of 28 days. I raised over \xA312k for children with deafness or cancer. The website was a central hub of information."
-                    })
-                  ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                        href: "https://chasingchallenges.webknit.co.uk/",
-                        children: "Chasing Challenges"
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", {
-                      className: "mb-0",
-                      children: "Create and showcase challenges using synced activities from the world\u2019s most popular human tracking service, Strava."
-                    })
-                  ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                        href: "http://lifeinnumbers.webknit.co.uk/",
-                        children: "Life In Numbers"
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", {
-                      className: "mb-0",
-                      children: "A project which outputs some interesting facts digits based on a users DOB."
-                    })
-                  ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", {
-                  className: "mb-6 grid grid-cols-2 gap-4",
-                  children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "https://password-generator-webknit.vercel.app/",
-                            children: "Password generator"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "https://calculate-rust.vercel.app/",
-                            children: "Calculate"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "https://click-me-webknit.vercel.app/",
-                            children: "Click me"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://paceyourself.webknit.co.uk",
-                            children: "Pace Yourself"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://won.webknit.co.uk/",
-                            children: "Worthy Of Note"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://sass-variable-generator.webknit.co.uk/#/",
-                            children: "Sass Variable Generator"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "https://places.webknit.co.uk/",
-                            children: "Places"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://fetest.webknit.co.uk/",
-                            children: "FEtest"
-                          })
-                        })
-                      })
-                    }),
-                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                      className: "border-grey-100 mb-6 border-b border-solid pb-6",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", {
-                        className: "",
-                        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", {
-                          className: "mb-0 text-base",
-                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", {
-                            href: "http://moustache.webknit.co.uk/",
-                            children: "Moustache"
-                          })
-                        })
-                      })
-                    })
-                  ]
                 })
               ]
             })
-          ]
-        })
+          }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Section, {
+            className: "bg-gray-100 dark:bg-gray-800",
+            children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", {
+              className: "container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2",
+              children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
+                className: "",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", {
+                    className: "",
+                    children: "Work"
+                  }),
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
+                    className: "border-grey-100 mb-6 border-b border-solid pb-6",
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", {
+                          href: "https://fed-now.vercel.app/",
+                          children: "FedNow Explorer"
+                        })
+                      }),
+                      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", {
+                        className: "mb-0",
+                        children: "Funky site for the Federal Reserve. React, Next.js, Custom Google maps, user journey, resource library."
+                      })
+                    ]
+                  }),
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
+                    className: "border-grey-100 mb-6 border-b border-solid pb-6",
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", {
+                          href: "https://black-diamond.vercel.app/",
+                          children: "Black Diamond"
+                        })
+                      }),
+                      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", {
+                        className: "mb-0",
+                        children: "Statistics and streaks from a range of football leagues for the purposes of finding the best odds in betting markets."
+                      })
+                    ]
+                  }),
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
+                    className: "border-grey-100 mb-6 border-b border-solid pb-6",
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", {
+                          href: "https://memoryup.webknit.co.uk/",
+                          children: "MemoryUp"
+                        })
+                      }),
+                      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", {
+                        className: "mb-0",
+                        children: [
+                          "Following my personal success with",
+                          " ",
+                          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", {
+                            href: "https://fetest.webknit.co.uk/",
+                            children: "FEtest"
+                          }),
+                          " I decided to made a fully fledged application that allowed users to create their own Questions."
+                        ]
+                      })
+                    ]
+                  })
+                ]
+              })
+            })
+          })
+        ]
       })
     ]
   });
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "50e0e7ba", entry: { module: "/build/entry.client-NP4IBMDQ.js", imports: ["/build/_shared/chunk-5CIYLDNO.js", "/build/_shared/chunk-B7AP56NU.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-FYISDSZE.js", imports: ["/build/_shared/chunk-HL2FCJNQ.js", "/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-5HEQYCMM.js", imports: ["/build/_shared/chunk-CUNCWSW3.js", "/build/_shared/chunk-47HX5G3B.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about/test": { id: "routes/about/test", parentId: "routes/about", path: "test", index: void 0, caseSensitive: void 0, module: "/build/routes/about/test-OHQTDXD6.js", imports: ["/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-O26Y2QGJ.js", imports: ["/build/_shared/chunk-47HX5G3B.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-50E0E7BA.js" };
+var assets_manifest_default = { version: "ce26bb53", entry: { module: "/build/entry.client-NP4IBMDQ.js", imports: ["/build/_shared/chunk-5CIYLDNO.js", "/build/_shared/chunk-B7AP56NU.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-MMHUHIS3.js", imports: ["/build/_shared/chunk-HL2FCJNQ.js", "/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-IQU2LRR3.js", imports: ["/build/_shared/chunk-F6HUWOAQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about/test": { id: "routes/about/test", parentId: "routes/about", path: "test", index: void 0, caseSensitive: void 0, module: "/build/routes/about/test-3QD5LHHY.js", imports: ["/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-5LXP33BS.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-CE26BB53.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

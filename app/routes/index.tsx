@@ -124,7 +124,7 @@ export default function Index() {
                 </p>
               </div>
 
-              {/* <div className="grid grid-cols-2">
+              <div className="grid grid-cols-2">
                 <div className="border-grey-100 mb-6 border-b border-solid pb-6">
                   <div className="">
                     <h3 className="mb-0 text-base">
@@ -163,12 +163,12 @@ export default function Index() {
                   <div className="">
                     <h3 className="mb-0 text-base">
                       <a href="http://nickandsteph.webknit.co.uk/">
-                        Nick & Steph
+                        Nick and Steph
                       </a>
                     </h3>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
 
             {/* <div className="o-flex__col o-flex__col--6">
