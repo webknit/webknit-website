@@ -21,8 +21,8 @@ export default function Index() {
 
   return (
     <Layout>
-      <HomeBanner />
-      <Section className="bg-gray-50 dark:bg-gray-800">
+      {/* <HomeBanner /> */}
+      {/* <Section className="bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2">
           <div>
             <h2>About</h2>
@@ -82,7 +82,7 @@ export default function Index() {
             />
           </div>
         </div>
-      </Section>
+      </Section> */}
       <Section className="bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto grid grid-cols-1 gap-16 md:grid-cols-2">
           <div className="">
