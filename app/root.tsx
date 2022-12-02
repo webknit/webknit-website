@@ -97,7 +97,7 @@ export const loader: LoaderFunction = async (params) => {
     }
   };
 
-  // if (process.env.IS_PROD) addData();
+  if (process.env.IS_PROD) addData();
   return null;
 };
 
