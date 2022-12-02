@@ -134,7 +134,7 @@ export default function App() {
         <MotionConfig reducedMotion="user">
           <Header />
           <Outlet />
-          <Footer />
+          {/* <Footer /> */}
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
