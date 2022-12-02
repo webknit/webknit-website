@@ -71,6 +71,8 @@ export const links: LinksFunction = () => {
 
 export const loader: LoaderFunction = async (params) => {
   const addData = async () => {
+    console.log("addData");
+
     const url = new URL(params.request.url);
     let pathName = url.pathname;
 
