@@ -75,7 +75,9 @@ export const loader: LoaderFunction = async (params) => {
 
   if (pathName === "/") pathName = "home";
 
-  console.log(url, params, process);
+  console.log("url", url);
+  console.log("params", params);
+  console.log("process", process);
 
   const addData = async () => {
     const authentication = await auth.signInAnonymously();
