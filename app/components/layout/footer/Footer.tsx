@@ -36,6 +36,11 @@ export function Footer() {
             </svg>
             contact@webknit.co.uk
           </a>
+
+          <p className="c-footer__text u-mb-0">
+            © Webknit 2022
+            <br></br>Please don’t copy, it took me ages!
+          </p>
         </div>
       </Section>
     </motion.div>
