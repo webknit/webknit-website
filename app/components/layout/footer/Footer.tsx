@@ -37,7 +37,9 @@ export function Footer() {
             contact@webknit.co.uk
           </a>
 
-          <p className="c-footer__text u-mb-0"></p>
+          <p className="c-footer__text u-mb-0">
+            <span className="block">Please don't copy, it took me ages!</span>
+          </p>
         </div>
       </Section>
     </motion.div>
