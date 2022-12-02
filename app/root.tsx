@@ -69,60 +69,60 @@ export const links: LinksFunction = () => {
 //   });
 // }
 
-// export const loader: LoaderFunction = async (params) => {
-//   const addData = async () => {
-//     const url = new URL(params.request.url);
-//     let pathName = url.pathname;
+export const loader: LoaderFunction = async (params) => {
+  const addData = async () => {
+    const url = new URL(params.request.url);
+    let pathName = url.pathname;
 
-//     if (pathName === "/") pathName = "home";
+    if (pathName === "/") pathName = "home";
 
-//     const authentication = await auth.signInAnonymously();
+    const authentication = await auth.signInAnonymously();
 
-//     try {
-//       const res = await setDoc(
-//         doc(db, "webknit-pageviews", pathName),
-//         {
-//           count: increment(1),
-//         },
-//         { merge: true }
-//       );
+    try {
+      const res = await setDoc(
+        doc(db, "webknit-pageviews", pathName),
+        {
+          count: increment(1),
+        },
+        { merge: true }
+      );
 
-//       console.log("Document written with ID: ", res);
-//     } catch (e) {
-//       console.error("Error adding document: ", e);
-//     }
-//   };
+      console.log("Document written with ID: ", res);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
 
-//   if (process.env.IS_PROD == "TRUE") addData();
+  if (process.env.IS_PROD == "TRUE") addData();
 
-//   return null;
-// };
+  return null;
+};
 
 export default function App() {
   const htmlRef = createRef<HTMLHtmlElement>();
   const isLoaded = useRef(false);
 
-  // useEffect(() => {
-  //   if (
-  //     !isLoaded.current &&
-  //     !htmlRef.current?.classList.contains("animate-logo")
-  //   ) {
-  //     htmlRef.current?.classList.add("animate-logo");
-  //     isLoaded.current = true;
-  //   }
-  // }, [isLoaded, htmlRef]);
+  useEffect(() => {
+    if (
+      !isLoaded.current &&
+      !htmlRef.current?.classList.contains("animate-logo")
+    ) {
+      htmlRef.current?.classList.add("animate-logo");
+      isLoaded.current = true;
+    }
+  }, [isLoaded, htmlRef]);
 
-  // useEffect(() => {
-  //   if (
-  //     localStorage.webknitTheme === "dark" ||
-  //     (!("webknitTheme" in localStorage) &&
-  //       window.matchMedia("(prefers-color-scheme: dark)").matches)
-  //   ) {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (
+      localStorage.webknitTheme === "dark" ||
+      (!("webknitTheme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   return (
     <html lang="en" className="h-full" ref={htmlRef}>
