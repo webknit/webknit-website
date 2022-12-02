@@ -39,7 +39,6 @@ export function Footer() {
           </a>
 
           <p className="c-footer__text u-mb-0">
-            © Webknit 2022
             <span className="block">Please don't copy, it took me ages!</span>
           </p>
         </div>
