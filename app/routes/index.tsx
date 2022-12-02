@@ -163,7 +163,7 @@ export default function Index() {
                   <div className="">
                     <h3 className="mb-0 text-base">
                       <a href="http://nickandsteph.webknit.co.uk/">
-                        Nick &amp; Steph
+                        Nick & Steph
                       </a>
                     </h3>
                   </div>
