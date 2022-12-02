@@ -70,16 +70,16 @@ export const meta: MetaFunction = () => ({
 // }
 
 export const loader: LoaderFunction = async (params) => {
-  const url = new URL(params.request.url);
-  let pathName = url.pathname;
-
-  if (pathName === "/") pathName = "home";
-
-  console.log("url", url);
-  console.log("params", params);
-  console.log("process", process);
-
   const addData = async () => {
+    const url = new URL(params.request.url);
+    let pathName = url.pathname;
+
+    if (pathName === "/") pathName = "home";
+
+    console.log("url", url);
+    console.log("params", params);
+    console.log("process", process);
+
     const authentication = await auth.signInAnonymously();
 
     try {
