@@ -51,7 +51,7 @@ export default function Index() {
           <div>
             <h2>Experience</h2>
 
-            <DividerList
+            {/* <DividerList
               items={[
                 {
                   text: "Gather content",
@@ -79,7 +79,7 @@ export default function Index() {
                   sideText: "April 2011 - Present",
                 },
               ]}
-            />
+            /> */}
           </div>
         </div>
       </Section>
