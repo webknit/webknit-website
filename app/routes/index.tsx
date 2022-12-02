@@ -171,7 +171,7 @@ export default function Index() {
               </div>
             </div>
 
-            {/* <div className="o-flex__col o-flex__col--6">
+            <div className="o-flex__col o-flex__col--6">
               <h2 className="u-mb-8">Play</h2>
 
               <div className="border-grey-100 mb-6 border-b border-solid pb-6">
@@ -294,7 +294,7 @@ export default function Index() {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </Section>
       </main>
