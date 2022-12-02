@@ -102,27 +102,23 @@ export default function App() {
   const htmlRef = createRef<HTMLHtmlElement>();
   const isLoaded = useRef(false);
 
-  // useEffect(() => {
-  //   if (
-  //     !isLoaded.current &&
-  //     !htmlRef.current?.classList.contains("animate-logo")
-  //   ) {
-  //     htmlRef.current?.classList.add("animate-logo");
-  //     isLoaded.current = true;
-  //   }
-  // }, [isLoaded, htmlRef]);
+  useEffect(() => {
+    if (
+      !isLoaded.current &&
+      !htmlRef.current?.classList.contains("animate-logo")
+    ) {
+      htmlRef.current?.classList.add("animate-logo");
+      isLoaded.current = true;
+    }
+  }, [isLoaded, htmlRef]);
 
-  // useEffect(() => {
-  //   if (
-  //     localStorage.webknitTheme === "dark" ||
-  //     (!("webknitTheme" in localStorage) &&
-  //       window.matchMedia("(prefers-color-scheme: dark)").matches)
-  //   ) {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   return (
     <html lang="en" className="h-full" ref={htmlRef}>
