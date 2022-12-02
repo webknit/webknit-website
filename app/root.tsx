@@ -130,7 +130,7 @@ export default function App() {
   return (
     <html lang="en" className="h-full" ref={htmlRef}>
       <head>
-        <Meta />
+        {/* <Meta /> */}
         <Links />
       </head>
       <body className="h-full text-gray-900 dark:text-white">
