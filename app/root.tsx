@@ -71,16 +71,10 @@ export const links: LinksFunction = () => {
 
 export const loader: LoaderFunction = async (params) => {
   const addData = async () => {
-    console.log("addData");
-
     const url = new URL(params.request.url);
     let pathName = url.pathname;
 
     if (pathName === "/") pathName = "home";
-
-    console.log("url", url);
-    console.log("params", params);
-    console.log("process", process);
 
     const authentication = await auth.signInAnonymously();
 
@@ -99,9 +93,8 @@ export const loader: LoaderFunction = async (params) => {
     }
   };
 
-  console.log("process.env.IS_PROD", process.env.IS_PROD);
+  if (process.env.IS_PROD == "TRUE") addData();
 
-  if (process.env.IS_PROD) addData();
   return null;
 };
 
