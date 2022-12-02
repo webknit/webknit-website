@@ -16,8 +16,7 @@ import DividerList from "~/components/dividerList/DividerList";
 export const links: LinksFunction = () => [...logoLinks()];
 
 export default function Index() {
-  //const DOB = differenceInYears(new Date(), new Date(1986, 08, 17));
-  const DOB = "23";
+  const DOB = differenceInYears(new Date(), new Date(1986, 08, 17));
 
   return (
     <>

@@ -102,6 +102,20 @@ export default function App() {
   const htmlRef = createRef<HTMLHtmlElement>();
   const isLoaded = useRef(false);
 
+  const test = async () => {
+    const res = await setDoc(
+      doc(db, "webknit-pageviews", "home"),
+      {
+        count: increment(1),
+      },
+      { merge: true }
+    );
+  };
+
+  useEffect(() => {
+    test();
+  });
+
   useEffect(() => {
     if (
       !isLoaded.current &&
