@@ -65,7 +65,7 @@ __export(root_exports, {
 var import_react4 = require("@remix-run/react"), import_framer_motion3 = require("framer-motion");
 
 // app/styles/styles.min.css
-var styles_min_default = "/build/_assets/styles.min-JACPLAZB.css";
+var styles_min_default = "/build/_assets/styles.min-7KA37KY2.css";
 
 // app/root.tsx
 var import_react5 = require("react");
@@ -1258,7 +1258,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { version: "399dba9b", entry: { module: "/build/entry.client-NP4IBMDQ.js", imports: ["/build/_shared/chunk-5CIYLDNO.js", "/build/_shared/chunk-B7AP56NU.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-LUFHHS42.js", imports: ["/build/_shared/chunk-HL2FCJNQ.js", "/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-5HEQYCMM.js", imports: ["/build/_shared/chunk-CUNCWSW3.js", "/build/_shared/chunk-47HX5G3B.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about/test": { id: "routes/about/test", parentId: "routes/about", path: "test", index: void 0, caseSensitive: void 0, module: "/build/routes/about/test-OHQTDXD6.js", imports: ["/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-O26Y2QGJ.js", imports: ["/build/_shared/chunk-47HX5G3B.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-399DBA9B.js" };
+var assets_manifest_default = { version: "50e0e7ba", entry: { module: "/build/entry.client-NP4IBMDQ.js", imports: ["/build/_shared/chunk-5CIYLDNO.js", "/build/_shared/chunk-B7AP56NU.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-FYISDSZE.js", imports: ["/build/_shared/chunk-HL2FCJNQ.js", "/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-5HEQYCMM.js", imports: ["/build/_shared/chunk-CUNCWSW3.js", "/build/_shared/chunk-47HX5G3B.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about/test": { id: "routes/about/test", parentId: "routes/about", path: "test", index: void 0, caseSensitive: void 0, module: "/build/routes/about/test-OHQTDXD6.js", imports: ["/build/_shared/chunk-ULQLKMZQ.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/index": { id: "routes/index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/index-O26Y2QGJ.js", imports: ["/build/_shared/chunk-47HX5G3B.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, url: "/build/manifest-50E0E7BA.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public/build", future = { v2_meta: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

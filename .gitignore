@@ -19,3 +19,4 @@ node_modules
 /app/styles/styles.min.css
 
 .cache
+api
