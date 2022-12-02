@@ -131,14 +131,14 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full text-gray-900 dark:text-white">
-        {/* <MotionConfig reducedMotion="user"> */}
-        {/* <Header /> */}
-        <Outlet />
-        {/* <Footer /> */}
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-        {/* </MotionConfig> */}
+        <MotionConfig reducedMotion="user">
+          {/* <Header /> */}
+          <Outlet />
+          {/* <Footer /> */}
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </MotionConfig>
       </body>
     </html>
   );
