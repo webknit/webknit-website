@@ -32,6 +32,7 @@ import {
   increment,
 } from "firebase/firestore";
 import { getDatabase, ref, set } from "firebase/database";
+import { checkDarkMode } from "./utils/checkDarkMode";
 
 export const links: LinksFunction = () => {
   return [
@@ -102,20 +103,6 @@ export default function App() {
   const htmlRef = createRef<HTMLHtmlElement>();
   const isLoaded = useRef(false);
 
-  const test = async () => {
-    const res = await setDoc(
-      doc(db, "webknit-pageviews", "home"),
-      {
-        count: increment(1),
-      },
-      { merge: true }
-    );
-  };
-
-  useEffect(() => {
-    test();
-  });
-
   useEffect(() => {
     if (
       !isLoaded.current &&
@@ -127,11 +114,7 @@ export default function App() {
   }, [isLoaded, htmlRef]);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    checkDarkMode();
   }, []);
 
   return (
